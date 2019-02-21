@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>Add New Cocktail</h1>
+  <div class="col-md-4">
+    <div class="card">
+      <%= simple_form_for(@cocktail) do |f| %>
+        <p><%= f.input :name %></p>
+        <p><%= f.submit %></p>
+      <% end %>
+    </div>
+  </div>
+</div>
+
