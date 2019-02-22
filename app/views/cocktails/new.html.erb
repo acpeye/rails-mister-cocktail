@@ -1,10 +1,30 @@
+<div class="navbar-wagon">
+  <h2>The Drink's On Me</h2>
+  <div class="navbar-wagon right">
+  <%= link_to(cocktails_path) do %>
+    <p class="btn btn-primary" style="margin-right: 10px"><i class="fas fa-home"></i></p>
+  <% end %>
+  <%= link_to(new_cocktail_path(@cocktail)) do %>
+    <p class="btn btn-primary"><i class="fas fa-glass-martini"></i> Add New Cocktail</p>
+  <% end %>
+  </div>
+</div>
+
 <div class="container">
-  <h1>Add New Cocktail</h1>
-  <div class="col-md-4">
-    <div class="card">
+  <div class="row">
+    <div class="box col-md-6">
+      <h3>Add New Cocktail</h3>
       <%= simple_form_for(@cocktail) do |f| %>
-        <p><%= f.input :name %></p>
-        <p><%= f.submit %></p>
+        <div class="form-group">
+          <%= f.input :name %>
+        </div>
+        <div class="form-group">
+          <%= f.input :photo %>
+        </div>
+          <%= f.input :photo_cache, as: :hidden %>
+        <div class="form-group" style="justify-content: center">
+          <%= f.submit %>
+        </div>
       <% end %>
     </div>
   </div>

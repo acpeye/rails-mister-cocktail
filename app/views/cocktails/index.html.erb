@@ -1,21 +1,23 @@
 <div class="navbar-wagon">
-  <h2>Cocktails</h2>
+  <h2>The Drink's On Me</h2>
   <div class="navbar-wagon right">
-    <%= link_to(new_cocktail_path(@cocktail)) do %>
-
-    <% end %>
+  <%= link_to(cocktails_path) do %>
+    <p class="btn btn-primary" style="margin-right: 10px"><i class="fas fa-home"></i></p>
+  <% end %>
+  <%= link_to(new_cocktail_path(@cocktail)) do %>
+    <p class="btn btn-primary"><i class="fas fa-glass-martini"></i> Add New Cocktail</p>
+  <% end %>
   </div>
 </div>
 <div class="container">
   <div class="card-container">
     <% @cocktails.each do |cocktail| %>
-      <div class="card col-md-4">
-        <%= link_to cocktail.name.to_s, cocktail_path(cocktail) %>
-      </div>
+      <%= link_to cocktail_path(cocktail) do %>
+        <div class="card">
+          <%= cl_image_tag cocktail.photo, crop: :fill %>
+          <h5><%= cocktail.name %></h5>
+        </div>
+      <% end %>
     <% end %>
   </div>
-
-  <%= link_to(new_cocktail_path(@cocktail)) do %>
-    <p class="btn btn-primary">Add New Cocktail</p>
-  <% end %>
 </div>
