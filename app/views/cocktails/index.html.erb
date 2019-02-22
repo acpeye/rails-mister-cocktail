@@ -1,13 +1,21 @@
-<h1>Cocktails</h1>
+<div class="navbar-wagon">
+  <h2>Cocktails</h2>
+  <div class="navbar-wagon right">
+    <%= link_to(new_cocktail_path(@cocktail)) do %>
 
+    <% end %>
+  </div>
+</div>
 <div class="container">
-  <% @cocktails.each do |cocktail| %>
-    <div class="card">
-      <%= link_to cocktail.name.to_s, cocktail_path(cocktail) %>
-    </div>
+  <div class="card-container">
+    <% @cocktails.each do |cocktail| %>
+      <div class="card col-md-4">
+        <%= link_to cocktail.name.to_s, cocktail_path(cocktail) %>
+      </div>
+    <% end %>
+  </div>
+
+  <%= link_to(new_cocktail_path(@cocktail)) do %>
+    <p class="btn btn-primary">Add New Cocktail</p>
   <% end %>
 </div>
-
-<%= link_to(new_cocktail_path(@cocktail)) do %>
-  <p class="btn btn-primary">Add New Cocktail</p>
-<% end %>
